@@ -1,9 +1,9 @@
-package com.ganzux.paintshop.pojo;
+package com.ganzux.paintshoppro.pojo;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
 
 	/**
 	 * You have a number of customers, and each have some colors they like,
@@ -29,6 +29,10 @@ public class Customer {
 		favouriteColors.add(color);
 		return true;
 	}
+	
+	public Collection<Color> getFavouriteColors(){
+		return favouriteColors;
+	}
 
 	private boolean doIAlreadyHaveMate(){
 		for (Color c : favouriteColors){
@@ -37,6 +41,16 @@ public class Customer {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int compareTo(Customer o) {
+		if (favouriteColors.size() > o.getFavouriteColors().size()){
+			return 1;
+		} else if (favouriteColors.size() < o.getFavouriteColors().size()){
+			return -1;
+		}
+		return 0;
 	}
 
 }

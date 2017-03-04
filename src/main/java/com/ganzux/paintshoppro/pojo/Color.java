@@ -1,4 +1,4 @@
-package com.ganzux.paintshop.pojo;
+package com.ganzux.paintshoppro.pojo;
 
 /**
  * You run a paint shop, and there are a few different colors of paint you can prepare.
@@ -11,5 +11,8 @@ public interface Color {
 	public static final String GLOSS_LBL = "G";
 	
 	public void setName(String text);
+	public String toString();
 
+	public String getCode();
+	public String getName();
 }

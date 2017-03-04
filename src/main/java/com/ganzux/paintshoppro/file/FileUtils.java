@@ -1,4 +1,4 @@
-package com.ganzux.paintshop.file;
+package com.ganzux.paintshoppro.file;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ganzux.paintshop.factory.ColorFactory;
-import com.ganzux.paintshop.pojo.Color;
-import com.ganzux.paintshop.pojo.Customer;
+import com.ganzux.paintshoppro.factory.ColorFactory;
+import com.ganzux.paintshoppro.pojo.Color;
+import com.ganzux.paintshoppro.pojo.Customer;
 
 /**
  * Your program should accept an input file as a command line argument,
@@ -22,15 +22,12 @@ import com.ganzux.paintshop.pojo.Customer;
  */
 public abstract class FileUtils {
 
-	public static List<Customer> readFile(String path) throws Exception{
-		
+	public static Object[] readFile(File file) throws Exception{
 		int colorNumbers = 0;
 		int numOFCustomers = 0;
 		List<Customer> customers = new ArrayList<Customer>();
 		
 		try {
-
-			File file = new File(path);
 
 			FileReader fileReader = new FileReader(file);
 
@@ -57,7 +54,12 @@ public abstract class FileUtils {
 			e.printStackTrace();
 		}
 		
-		return customers;
+		return new Object[]{colorNumbers ,customers};
+	}
+	
+	public static Object[] readFile(String path) throws Exception{
+		File file = new File(path);
+		return readFile(file);
 	}
 	
 	private static Customer readPairs(String str) throws Exception{

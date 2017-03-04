@@ -1,7 +1,7 @@
-package com.ganzux.paintshop.factory;
+package com.ganzux.paintshoppro.factory;
 
-import com.ganzux.paintshop.pojo.Color;
-import com.ganzux.paintshop.pojo.Gloss;
+import com.ganzux.paintshoppro.pojo.Color;
+import com.ganzux.paintshoppro.pojo.Gloss;
 
 public class GlossFactory implements AbstractColorFactory{
 
