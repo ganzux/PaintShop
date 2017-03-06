@@ -71,7 +71,8 @@ M M
 
 
 # Compiling
-Using Maven 4.0 and Java 1.8 or higher.
+Apache Maven 3.3.9
+Build-Jdk: 1.8.0_112
 
 # Running
 java -jar paintshoppro-1.0.jar file_name.gilt
