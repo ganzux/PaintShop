@@ -8,10 +8,21 @@ import junit.framework.TestCase;
 
 public class AppTest extends TestCase {
 
-	ClassLoader classLoader = getClass().getClassLoader();
-	String validFolder = "files" + File.separator + "valid" + File.separator;
-	String invalidFolder = "files" + File.separator + "invalid" + File.separator;
+	///////////////////////////////////////////////////////////////
+	//                        Attributes                         //
+	///////////////////////////////////////////////////////////////
+	private final ClassLoader classLoader = getClass().getClassLoader();
+	private final String validFolder = "files" + File.separator + "valid" + File.separator;
+	private final String invalidFolder = "files" + File.separator + "invalid" + File.separator;
+	///////////////////////////////////////////////////////////////
+	//                        /Attributes                        //
+	///////////////////////////////////////////////////////////////
 
+
+
+	///////////////////////////////////////////////////////////////
+	//                           Tests                           //
+	///////////////////////////////////////////////////////////////
 	@Test
 	public void testValid5Colors3Customers() throws Exception {
 
@@ -47,15 +58,12 @@ public class AppTest extends TestCase {
 		
 		assertEquals(result, "G M G M G G M M G");
 	}
-	
-	
-	
-	
-	@Test
-	public void testInValid5Colors3Customers() throws Exception {
 
-		File file = new File(classLoader.getResource(invalidFolder + "1_color.2_customers.gilt").toURI());
+	@Test
+	public void testInValid5Colors3Customers() {
+
 		try{
+			File file = new File(classLoader.getResource(invalidFolder + "1_color.2_customers.gilt").toURI());
 			String result = Main.main(file.getAbsolutePath());
 		} catch(Exception e){
 			assertEquals(e.getMessage(), "No solution exists");
@@ -65,10 +73,10 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void testInValid5Colors3CustomersMjultipleMM() throws Exception {
+	public void testInValid5Colors3CustomersMjultipleMM() {
 
-		File file = new File(classLoader.getResource(invalidFolder + "5_colors.3_customers.MM.gilt").toURI());
 		try{
+			File file = new File(classLoader.getResource(invalidFolder + "5_colors.3_customers.MM.gilt").toURI());
 			String result = Main.main(file.getAbsolutePath());
 		} catch(Exception e){
 			assertEquals(e.getMessage(), "It is not possible, sorry!");
@@ -77,8 +85,53 @@ public class AppTest extends TestCase {
 		
 	}
 	
+	@Test
+	public void testInValidFile() {
+
+		try{
+			File file = new File(classLoader.getResource(invalidFolder + "I_dont_exist.gilt").toURI());
+		} catch(Exception e){
+			assertEquals(e.getMessage(), null);
+		}
+
+	}
 	
+	@Test
+	public void testInvalidNotSpecializedPaint() {
+
+		try{
+			File file = new File(classLoader.getResource(invalidFolder + "no_gloss_or_matte.gilt").toURI());
+			String result = Main.main(file.getAbsolutePath());
+		} catch(Exception e){
+			assertEquals(e.getMessage(), "The Color MUST be either Matte or Gloss");
+		}
+	}
 	
+	@Test
+	public void testInvalidIncorrectNumberOfColorsLess() {
+
+		try{
+			File file = new File(classLoader.getResource(invalidFolder + "incorrect_colors_less.gilt").toURI());
+			String result = Main.main(file.getAbsolutePath());
+		} catch(Exception e){
+			assertEquals(e.getMessage(), "The number of colors doesn't match with the specified with the Customers");
+		}
+		
+	}
 	
-	
+	@Test
+	public void testInvalidIncorrectNumberOfColorsMore() {
+
+		try{
+			File file = new File(classLoader.getResource(invalidFolder + "incorrect_colors_more.gilt").toURI());
+			String result = Main.main(file.getAbsolutePath());
+		} catch(Exception e){
+			assertEquals(e.getMessage(), "The number of colors doesn't match with the specified with the Customers");
+		}
+		
+	}
+
+	///////////////////////////////////////////////////////////////
+	//                          /Tests                           //
+	///////////////////////////////////////////////////////////////
 }
