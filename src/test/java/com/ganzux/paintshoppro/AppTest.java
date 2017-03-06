@@ -2,7 +2,6 @@ package com.ganzux.paintshoppro;
 
 import java.io.File;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -152,7 +151,7 @@ public class AppTest extends TestCase {
 			File file = new File(classLoader.getResource(invalidFolder + "letter_instead_of_number.gilt").toURI());
 			String result = Main.main(file.getAbsolutePath());
 		} catch(Exception e){
-			Assert.assertThat(e.getMessage(), CoreMatchers.containsString("There is an error in the Color specification, "));
+			Assert.assertTrue(e.getMessage().contains("There is an error in the Color specification, "));
 		}
 		
 	}
