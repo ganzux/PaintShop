@@ -25,6 +25,20 @@ public class Main {
 
 		return mix(numberOfColors, customers);
 	}
+	
+	public static void main(String[] args){
+		try {
+			System.out.println(main(args[0]));
+		} catch (NumberFormatException e) {
+			System.err.println("Error with the file, check it please. " + e.getMessage());
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found, check it please. " + e.getMessage());
+		} catch (IOException e) {
+			System.err.println("Error reading the file, check it please. " + e.getMessage());
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
 	///////////////////////////////////////////////////////////////
 	//                      /Public Methods                      //
 	///////////////////////////////////////////////////////////////
