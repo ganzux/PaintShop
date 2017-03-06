@@ -1,16 +1,22 @@
 package com.ganzux.paintshoppro;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import com.ganzux.paintshoppro.file.FileUtils;
+import com.ganzux.paintshoppro.pojo.IColor;
 import com.ganzux.paintshoppro.pojo.Color;
 import com.ganzux.paintshoppro.pojo.Customer;
 
 public class Main {
 
-	public static String main(String path) throws Exception {
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
+	public static String main(String path) throws Exception, IOException, FileNotFoundException, NumberFormatException {
 		
 		Object[] fileData = FileUtils.readFile(path);
 		
@@ -19,7 +25,15 @@ public class Main {
 
 		return mix(numberOfColors, customers);
 	}
-	
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
+
+
+
+	///////////////////////////////////////////////////////////////
+	//                      Private Methods                      //
+	///////////////////////////////////////////////////////////////
 	/**
 	 * You want to mix the colors, so that:
 	 * There is just one batch for each color, and it's either gloss or matte.
@@ -84,10 +98,10 @@ public class Main {
 		
 		for (Customer customer : customers){
 			
-			Collection<Color> customerColors = customer.getFavouriteColors();
+			Collection<IColor> customerColors = customer.getFavouriteColors();
 
 			boolean thereIsGloss = false;
-			for (Color color : customerColors){
+			for (IColor color : customerColors){
 				int colorNumer = Integer.valueOf(color.getName());
 				matrix[customerId][colorNumer - 1] = color.getCode();
 				if (Color.GLOSS_LBL == color.getCode()){
@@ -165,6 +179,8 @@ public class Main {
 		}
 
 	}
-
+	///////////////////////////////////////////////////////////////
+	//                     /Private Methods                      //
+	///////////////////////////////////////////////////////////////
 
 }
