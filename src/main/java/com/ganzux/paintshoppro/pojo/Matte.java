@@ -1,32 +1,25 @@
 package com.ganzux.paintshoppro.pojo;
 
-public class Matte implements Color{
+/**
+ * Class for Matte Colors
+ * @author ganzux Alvaro Alcedo Moreno
+ */
+public class Matte extends Color{
 
-	private String name;
-	
-	public Matte() {
-		super();
-	}
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
 
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	@Override
 	public String toString(){
-		return name + MATTE_LBL;
+		return getName() + MATTE_LBL;
 	}
 
 	@Override
 	public String getCode() {
 		return MATTE_LBL;
 	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
 }
