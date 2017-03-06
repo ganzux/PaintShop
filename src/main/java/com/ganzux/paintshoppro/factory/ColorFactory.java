@@ -1,10 +1,20 @@
 package com.ganzux.paintshoppro.factory;
 
 import com.ganzux.paintshoppro.pojo.Color;
+import com.ganzux.paintshoppro.pojo.IColor;
 
+/**
+ * Public class with the rules to use the factories depending on the color
+ * type, so if we are using Color.MATTE_LBL, we will return a MatteFactory
+ * and if we are using Color.GLOSS_LBL it will be GlossFactory.
+ * @author ganzux Alvaro Alcedo Moreno
+ */
 public class ColorFactory {
 
-	public static Color createColor(String colorType) throws Exception{
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
+	public static IColor createColor(String colorType) throws Exception{
 		
 		AbstractColorFactory myFactory = null;
 		
@@ -18,5 +28,7 @@ public class ColorFactory {
 
 		return myFactory.createColor();
 	}
-
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
 }
