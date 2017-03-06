@@ -97,6 +97,12 @@ public abstract class FileUtils {
 		for (int i = 0 ; i < data.length ; i += 2){
 			String colorNumber = data[i];
 			String colorType   = data[i + 1];
+
+			try{
+				Integer.parseInt(colorNumber);
+			} catch(NumberFormatException nfe){
+				throw new Exception("There is an error in the Color specification, " + colorNumber + " should be a number");
+			}
 			
 			colorsIncluded.put(colorNumber, colorNumber);
 
