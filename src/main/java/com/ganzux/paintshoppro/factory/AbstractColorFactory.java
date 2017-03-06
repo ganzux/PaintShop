@@ -1,9 +1,18 @@
 package com.ganzux.paintshoppro.factory;
 
-import com.ganzux.paintshoppro.pojo.Color;
+import com.ganzux.paintshoppro.pojo.IColor;
 
+/**
+ * Interface defining the methods that the Factories must create.
+ * @author ganzux Alvaro Alcedo Moreno
+ */
 public interface AbstractColorFactory {
 
-	public Color createColor();
-
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
+	public IColor createColor();
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
 }
