@@ -1,18 +1,46 @@
 package com.ganzux.paintshoppro.pojo;
 
 /**
- * You run a paint shop, and there are a few different colors of paint you can prepare.
- * Each color can be either "gloss" or "matte".
- * @throws Exception 
+ * Abstract (not possible to create a Color) class Color (Each color can be either
+ * "gloss" or "matte"). We are defining the types here and not on the interface
+ * (avoiding thr "Constant Interface Antipattern") and also the common methods
+ * that are managing the "name" attribute.
+ * @author ganzux Alvaro Alcedo Moreno
  */
-public interface Color {
-	
+public abstract class Color implements IColor{
+
+	///////////////////////////////////////////////////////////////
+	//                         Constants                         //
+	///////////////////////////////////////////////////////////////
 	public static final String MATTE_LBL = "M";
 	public static final String GLOSS_LBL = "G";
-	
-	public void setName(String text);
-	public String toString();
+	///////////////////////////////////////////////////////////////
+	//                        /Constants                         //
+	///////////////////////////////////////////////////////////////
 
-	public String getCode();
-	public String getName();
+
+
+	///////////////////////////////////////////////////////////////
+	//                        Attributes                         //
+	///////////////////////////////////////////////////////////////
+	private String name;
+	///////////////////////////////////////////////////////////////
+	//                        /Attributes                        //
+	///////////////////////////////////////////////////////////////
+
+
+
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
 }
