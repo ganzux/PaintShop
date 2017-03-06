@@ -1,30 +1,25 @@
 package com.ganzux.paintshoppro.pojo;
 
-public class Gloss implements Color{
-	
-	private String name;
+/**
+ * Class for Gloss Colors
+ * @author ganzux Alvaro Alcedo Moreno
+ */
+public class Gloss extends Color {
 
-	public Gloss() {
-		super();
-	}
-
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
+	///////////////////////////////////////////////////////////////
+	//                       Public Methods                      //
+	///////////////////////////////////////////////////////////////
 
 	@Override
 	public String toString(){
-		return name + GLOSS_LBL;
+		return getName() + GLOSS_LBL;
 	}
-	
+
 	@Override
 	public String getCode() {
 		return GLOSS_LBL;
 	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
+	///////////////////////////////////////////////////////////////
+	//                      /Public Methods                      //
+	///////////////////////////////////////////////////////////////
 }
