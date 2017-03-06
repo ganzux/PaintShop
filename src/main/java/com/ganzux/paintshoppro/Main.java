@@ -28,7 +28,11 @@ public class Main {
 	
 	public static void main(String[] args){
 		try {
-			System.out.println(main(args[0]));
+			if (args == null || args.length != 1){
+				System.err.println("Please, indicate the correct parameter");
+			} else {
+				System.out.println(main(args[0]));
+			}
 		} catch (NumberFormatException e) {
 			System.err.println("Error with the file, check it please. " + e.getMessage());
 		} catch (FileNotFoundException e) {

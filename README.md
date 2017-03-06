@@ -68,3 +68,10 @@ One more example.  The input:
 ...should produce
 
 M M
+
+
+# Compiling
+Using Maven 4.0 and Java 1.8 or higher.
+
+# Running
+java -jar paintshoppro-1.0.jar file_name.gilt
